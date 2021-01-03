@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/course-payment`,
+    require('./coursePaymentCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/course-payment/:id`,
+    require('./coursePaymentUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/course-payment/import`,
+    require('./coursePaymentImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/course-payment`,
+    require('./coursePaymentDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/course-payment/autocomplete`,
+    require('./coursePaymentAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/course-payment`,
+    require('./coursePaymentList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/course-payment/:id`,
+    require('./coursePaymentFind').default,
+  );
+};

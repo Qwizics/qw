@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/exam-question`,
+    require('./examQuestionCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/exam-question/:id`,
+    require('./examQuestionUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/exam-question/import`,
+    require('./examQuestionImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/exam-question`,
+    require('./examQuestionDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/exam-question/autocomplete`,
+    require('./examQuestionAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/exam-question`,
+    require('./examQuestionList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/exam-question/:id`,
+    require('./examQuestionFind').default,
+  );
+};

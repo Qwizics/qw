@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/course-registration`,
+    require('./courseRegistrationCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/course-registration/:id`,
+    require('./courseRegistrationUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/course-registration/import`,
+    require('./courseRegistrationImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/course-registration`,
+    require('./courseRegistrationDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/course-registration/autocomplete`,
+    require('./courseRegistrationAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/course-registration`,
+    require('./courseRegistrationList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/course-registration/:id`,
+    require('./courseRegistrationFind').default,
+  );
+};

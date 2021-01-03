@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/course-lecture`,
+    require('./courseLectureCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/course-lecture/:id`,
+    require('./courseLectureUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/course-lecture/import`,
+    require('./courseLectureImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/course-lecture`,
+    require('./courseLectureDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/course-lecture/autocomplete`,
+    require('./courseLectureAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/course-lecture`,
+    require('./courseLectureList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/course-lecture/:id`,
+    require('./courseLectureFind').default,
+  );
+};

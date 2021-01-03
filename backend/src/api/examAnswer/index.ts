@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/exam-answer`,
+    require('./examAnswerCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/exam-answer/:id`,
+    require('./examAnswerUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/exam-answer/import`,
+    require('./examAnswerImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/exam-answer`,
+    require('./examAnswerDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/exam-answer/autocomplete`,
+    require('./examAnswerAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/exam-answer`,
+    require('./examAnswerList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/exam-answer/:id`,
+    require('./examAnswerFind').default,
+  );
+};
