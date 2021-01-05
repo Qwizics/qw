@@ -19,6 +19,11 @@ export default (database) => {
       },
       questionType: {
         type: String,
+        enum: [
+          "MULT_TEXT",
+          "MULT_1",
+          null
+        ],
       },
       answers: [{
         type: Schema.Types.ObjectId,

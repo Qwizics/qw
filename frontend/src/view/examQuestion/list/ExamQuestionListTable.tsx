@@ -194,7 +194,13 @@ function ExamQuestionListTable(props) {
                     />
                   </TableCell>
                 <TableCell>{row.textValue}</TableCell>
-                <TableCell>{row.questionType}</TableCell>
+                <TableCell>
+                  {row.questionType
+                    ? i18n(
+                        `entities.examQuestion.enumerators.questionType.${row.questionType}`,
+                      )
+                    : null}
+                </TableCell>
                 <TableCell>
                   <ExamAnswerListItem value={row.answers} />
                 </TableCell>

@@ -265,12 +265,7 @@ class ExamAnswerRepository {
 
       if (filter.answerType) {
         criteriaAnd.push({
-          answerType: {
-            $regex: MongooseQueryUtils.escapeRegExp(
-              filter.answerType,
-            ),
-            $options: 'i',
-          },
+          answerType: filter.answerType
         });
       }
 

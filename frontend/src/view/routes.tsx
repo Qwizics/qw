@@ -4,6 +4,13 @@ const permissions = Permissions.values;
 
 const privateRoutes = [
   {
+    path: '/course-content',
+    loader: () =>
+            import('src/view/courseContent/CourseLectureForm'),
+    permissionRequired: permissions.courseContent,
+    exact: true,
+  },
+  {
     path: '/',
     loader: () =>
       import('src/view/dashboard/DashboardPage'),

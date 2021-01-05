@@ -23,6 +23,8 @@ import filterRenders from 'src/modules/shared/filter/filterRenders';
 import FilterPreview from 'src/view/shared/filter/FilterPreview';
 import FilterAccordion from 'src/view/shared/filter/FilterAccordion';
 import InputFormItem from 'src/view/shared/form/items/InputFormItem';
+import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
+import examAnswerEnumerators from 'src/modules/examAnswer/examAnswerEnumerators';
 
 const schema = yup.object().shape({
   answerText: yupFilterSchemas.string(
@@ -31,7 +33,7 @@ const schema = yup.object().shape({
   order: yupFilterSchemas.string(
     i18n('entities.examAnswer.fields.order'),
   ),
-  answerType: yupFilterSchemas.string(
+  answerType: yupFilterSchemas.enumerator(
     i18n('entities.examAnswer.fields.answerType'),
   ),
 });
@@ -53,7 +55,7 @@ const previewRenders = {
   },
   answerType: {
     label: i18n('entities.examAnswer.fields.answerType'),
-    render: filterRenders.generic(),
+    render: filterRenders.enumerator('entities.examAnswer.enumerators.answerType',),
   },
 }
 
@@ -126,9 +128,17 @@ function ExamAnswerListFilter(props) {
                   />
                 </Grid>
                 <Grid item lg={6} xs={12}>
-                  <InputFormItem
+                  <SelectFormItem
                     name="answerType"
-                    label={i18n('entities.examAnswer.fields.answerType')}      
+                    label={i18n('entities.examAnswer.fields.answerType')}
+                    options={examAnswerEnumerators.answerType.map(
+                      (value) => ({
+                        value,
+                        label: i18n(
+                          `entities.examAnswer.enumerators.answerType.${value}`,
+                        ),
+                      }),
+                    )}
                   />
                 </Grid>
               </Grid>

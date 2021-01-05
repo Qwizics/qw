@@ -17,7 +17,12 @@ function ExamQuestionView(props) {
 
         <TextViewItem
           label={i18n('entities.examQuestion.fields.questionType')}
-          value={record.questionType}
+          value={
+            record.questionType &&
+            i18n(
+              `entities.examQuestion.enumerators.questionType.${record.questionType}`,
+            )
+          }
         />
 
         <ExamAnswerViewItem

@@ -110,4 +110,11 @@ export default [
     icon: <ChevronRightIcon />,
     label: i18n('entities.answerResult.menu'),
   },
+
+  {
+    path: '/course-content',
+    permissionRequired: permissions.courseContent,
+    icon: <ChevronRightIcon />,
+    label: i18n('courseContent.menu'),
+  },
 ].filter(Boolean);

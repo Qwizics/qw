@@ -71,7 +71,7 @@ function Header(props) {
 
         <div className={classes.grow} />
 
-        <I18nSelect />
+        {/*<I18nSelect />*/}
 
         <UserMenu />
       </Toolbar>

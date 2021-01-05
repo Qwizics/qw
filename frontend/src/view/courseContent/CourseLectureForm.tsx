@@ -12,35 +12,30 @@ import * as yup from 'yup';
 import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
 import { yupResolver } from '@hookform/resolvers';
 import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import examAnswerEnumerators from 'src/modules/examAnswer/examAnswerEnumerators';
 
 const schema = yup.object().shape({
-  answerText: yupFormSchemas.string(
-    i18n('entities.examAnswer.fields.answerText'),
+  lectureTitle: yupFormSchemas.string(
+    i18n('entities.courseLecture.fields.lectureTitle'),
     {},
   ),
-  order: yupFormSchemas.string(
-    i18n('entities.examAnswer.fields.order'),
+  lectureType: yupFormSchemas.string(
+    i18n('entities.courseLecture.fields.lectureType'),
     {},
   ),
-  answerType: yupFormSchemas.enumerator(
-    i18n('entities.examAnswer.fields.answerType'),
-    {
-      "options": examAnswerEnumerators.answerType
-    },
+  lectureUrl: yupFormSchemas.string(
+    i18n('entities.courseLecture.fields.lectureUrl'),
+    {},
   ),
 });
 
-function ExamAnswerForm(props) {
+function CourseLectureForm(props) {
   const [initialValues] = useState(() => {
     const record = props.record || {};
 
     return {
-      answerText: record.answerText,
-      order: record.order,
-      answerType: record.answerType,
+      lectureTitle: record.lectureTitle,
+      lectureType: record.lectureType,
+      lectureUrl: record.lectureUrl,
     };
   });
 
@@ -68,32 +63,24 @@ function ExamAnswerForm(props) {
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <Grid spacing={2} container>
             <Grid item lg={7} md={8} sm={12} xs={12}>
-              <TextAreaFormItem
-                name="answerText"
-                label={i18n('entities.examAnswer.fields.answerText')}  
+              <InputFormItem
+                name="lectureTitle"
+                label={i18n('entities.courseLecture.fields.lectureTitle')}  
                 required={false}
               autoFocus
               />
             </Grid>
             <Grid item lg={7} md={8} sm={12} xs={12}>
               <InputFormItem
-                name="order"
-                label={i18n('entities.examAnswer.fields.order')}  
+                name="lectureType"
+                label={i18n('entities.courseLecture.fields.lectureType')}  
                 required={false}
               />
             </Grid>
             <Grid item lg={7} md={8} sm={12} xs={12}>
-              <SelectFormItem
-                name="answerType"
-                label={i18n('entities.examAnswer.fields.answerType')}
-                options={examAnswerEnumerators.answerType.map(
-                  (value) => ({
-                    value,
-                    label: i18n(
-                      `entities.examAnswer.enumerators.answerType.${value}`,
-                    ),
-                  }),
-                )}
+              <InputFormItem
+                name="lectureUrl"
+                label={i18n('entities.courseLecture.fields.lectureUrl')}  
                 required={false}
               />
             </Grid>
@@ -145,4 +132,4 @@ function ExamAnswerForm(props) {
   );
 }
 
-export default ExamAnswerForm;
+export default CourseLectureForm;

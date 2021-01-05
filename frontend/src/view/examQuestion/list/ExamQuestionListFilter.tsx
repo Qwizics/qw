@@ -23,13 +23,15 @@ import filterRenders from 'src/modules/shared/filter/filterRenders';
 import FilterPreview from 'src/view/shared/filter/FilterPreview';
 import FilterAccordion from 'src/view/shared/filter/FilterAccordion';
 import InputFormItem from 'src/view/shared/form/items/InputFormItem';
+import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
+import examQuestionEnumerators from 'src/modules/examQuestion/examQuestionEnumerators';
 import ExamAnswerAutocompleteFormItem from 'src/view/examAnswer/autocomplete/ExamAnswerAutocompleteFormItem';
 
 const schema = yup.object().shape({
   textValue: yupFilterSchemas.string(
     i18n('entities.examQuestion.fields.textValue'),
   ),
-  questionType: yupFilterSchemas.string(
+  questionType: yupFilterSchemas.enumerator(
     i18n('entities.examQuestion.fields.questionType'),
   ),
   correctAnswer: yupFilterSchemas.relationToOne(
@@ -50,7 +52,7 @@ const previewRenders = {
   },
   questionType: {
     label: i18n('entities.examQuestion.fields.questionType'),
-    render: filterRenders.generic(),
+    render: filterRenders.enumerator('entities.examQuestion.enumerators.questionType',),
   },
   correctAnswer: {
       label: i18n('entities.examQuestion.fields.correctAnswer'),
@@ -121,9 +123,17 @@ function ExamQuestionListFilter(props) {
                   />
                 </Grid>
                 <Grid item lg={6} xs={12}>
-                  <InputFormItem
+                  <SelectFormItem
                     name="questionType"
-                    label={i18n('entities.examQuestion.fields.questionType')}      
+                    label={i18n('entities.examQuestion.fields.questionType')}
+                    options={examQuestionEnumerators.questionType.map(
+                      (value) => ({
+                        value,
+                        label: i18n(
+                          `entities.examQuestion.enumerators.questionType.${value}`,
+                        ),
+                      }),
+                    )}
                   />
                 </Grid>
                 <Grid item lg={6} xs={12}>

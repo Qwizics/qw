@@ -194,7 +194,13 @@ function ExamAnswerListTable(props) {
                   </TableCell>
                 <TableCell>{row.answerText}</TableCell>
                 <TableCell>{row.order}</TableCell>
-                <TableCell>{row.answerType}</TableCell>                  
+                <TableCell>
+                  {row.answerType
+                    ? i18n(
+                        `entities.examAnswer.enumerators.answerType.${row.answerType}`,
+                      )
+                    : null}
+                </TableCell>                  
                   <TableCell>
                     <Box
                       display="flex"

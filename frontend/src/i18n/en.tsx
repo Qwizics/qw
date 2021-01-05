@@ -1,4 +1,7 @@
 const en = {
+    courseContent: {
+        menu: 'Course Content',
+    },
     common: {
         or: 'or',
         cancel: 'Cancel',
@@ -306,154 +309,168 @@ const en = {
             },
         },
 
-        examQuestion: {
-            name: 'examQuestion',
-            label: 'Exam Questions',
-            menu: 'Exam Questions',
-            exporterFileName: 'examQuestion_export',
-            list: {
-                menu: 'Exam Questions',
-                title: 'Exam Questions',
-            },
-            create: {
-                success: 'Exam Question successfully saved',
-            },
-            update: {
-                success: 'Exam Question successfully saved',
-            },
-            destroy: {
-                success: 'Exam Question successfully deleted',
-            },
-            destroyAll: {
-                success: 'Exam Question(s) successfully deleted',
-            },
-            edit: {
-                title: 'Edit Exam Question',
-            },
-            fields: {
-                id: 'Id',
-                'textValue': 'TextValue',
-                'questionType': 'QuestionType',
-                'answers': 'Answers',
-                'correctAnswer': 'CorrectAnswer',
-                createdAt: 'Created at',
-                updatedAt: 'Updated at',
-                createdAtRange: 'Created at',
-            },
-            enumerators: {},
-            new: {
-                title: 'New Exam Question',
-            },
-            view: {
-                title: 'View Exam Question',
-            },
-            importer: {
-                title: 'Import Exam Questions',
-                fileName: 'examQuestion_import_template',
-                hint:
-                    'Files/Images columns must be the URLs of the files separated by space.',
-            },
+    examQuestion: {
+        name: 'examQuestion',
+        label: 'Exam Questions',
+        menu: 'Exam Questions',
+        exporterFileName: 'examQuestion_export',
+        list: {
+          menu: 'Exam Questions',
+          title: 'Exam Questions',
         },
-
-        examAnswer: {
-            name: 'examAnswer',
-            label: 'Exam Answers',
-            menu: 'Exam Answers',
-            exporterFileName: 'examAnswer_export',
-            list: {
-                menu: 'Exam Answers',
-                title: 'Exam Answers',
-            },
-            create: {
-                success: 'Exam Answer successfully saved',
-            },
-            update: {
-                success: 'Exam Answer successfully saved',
-            },
-            destroy: {
-                success: 'Exam Answer successfully deleted',
-            },
-            destroyAll: {
-                success: 'Exam Answer(s) successfully deleted',
-            },
-            edit: {
-                title: 'Edit Exam Answer',
-            },
-            fields: {
-                id: 'Id',
-                'answerText': 'AnswerText',
-                'order': 'Order',
-                'answerType': 'AnswerType',
-                createdAt: 'Created at',
-                updatedAt: 'Updated at',
-                createdAtRange: 'Created at',
-            },
-            enumerators: {},
-            new: {
-                title: 'New Exam Answer',
-            },
-            view: {
-                title: 'View Exam Answer',
-            },
-            importer: {
-                title: 'Import Exam Answers',
-                fileName: 'examAnswer_import_template',
-                hint:
-                    'Files/Images columns must be the URLs of the files separated by space.',
-            },
+        create: {
+          success: 'Exam Question successfully saved',
         },
-
-        examResult: {
-            name: 'examResult',
-            label: 'Exam Results',
-            menu: 'Exam Results',
-            exporterFileName: 'examResult_export',
-            list: {
-                menu: 'Exam Results',
-                title: 'Exam Results',
-            },
-            create: {
-                success: 'Exam Result successfully saved',
-            },
-            update: {
-                success: 'Exam Result successfully saved',
-            },
-            destroy: {
-                success: 'Exam Result successfully deleted',
-            },
-            destroyAll: {
-                success: 'Exam Result(s) successfully deleted',
-            },
-            edit: {
-                title: 'Edit Exam Result',
-            },
-            fields: {
-                id: 'Id',
-                'questions': 'Questions',
-                'status': 'Status',
-                'lecture': 'Lecture',
-                'course': 'Course',
-                'answers': 'Answers',
-                createdAt: 'Created at',
-                updatedAt: 'Updated at',
-                createdAtRange: 'Created at',
-            },
-            enumerators: {},
-            new: {
-                title: 'New Exam Result',
-            },
-            view: {
-                title: 'View Exam Result',
-            },
-            importer: {
-                title: 'Import Exam Results',
-                fileName: 'examResult_import_template',
-                hint:
-                    'Files/Images columns must be the URLs of the files separated by space.',
-            },
+        update: {
+          success: 'Exam Question successfully saved',
         },
+        destroy: {
+          success: 'Exam Question successfully deleted',
+        },
+        destroyAll: {
+          success: 'Exam Question(s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit Exam Question',
+        },
+        fields: {
+          id: 'Id',
+          'textValue': 'TextValue',
+          'questionType': 'QuestionType',
+          'answers': 'Answers',
+          'correctAnswer': 'CorrectAnswer',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+          'questionType': {
+            'MULT_TEXT': 'MULT_TEXT',
+            'MULT_1': 'MULT_1',
+          },
+        },
+        new: {
+          title: 'New Exam Question',
+        },
+        view: {
+          title: 'View Exam Question',
+        },
+        importer: {
+          title: 'Import Exam Questions',
+          fileName: 'examQuestion_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
 
-        answerResult: {
+    examAnswer: {
+        name: 'examAnswer',
+        label: 'Exam Answers',
+        menu: 'Exam Answers',
+        exporterFileName: 'examAnswer_export',
+        list: {
+          menu: 'Exam Answers',
+          title: 'Exam Answers',
+        },
+        create: {
+          success: 'Exam Answer successfully saved',
+        },
+        update: {
+          success: 'Exam Answer successfully saved',
+        },
+        destroy: {
+          success: 'Exam Answer successfully deleted',
+        },
+        destroyAll: {
+          success: 'Exam Answer(s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit Exam Answer',
+        },
+        fields: {
+          id: 'Id',
+          'answerText': 'AnswerText',
+          'order': 'Order',
+          'answerType': 'AnswerType',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+          'answerType': {
+            'MULT_ONE': 'MULT_ONE',
+            'MULT_RATING': 'MULT_RATING',
+            'MULT_OR': 'MULT_OR',
+            'MULT_AND': 'MULT_AND',
+          },
+        },
+        new: {
+          title: 'New Exam Answer',
+        },
+        view: {
+          title: 'View Exam Answer',
+        },
+        importer: {
+          title: 'Import Exam Answers',
+          fileName: 'examAnswer_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
+
+    examResult: {
+        name: 'examResult',
+        label: 'Exam Results',
+        menu: 'Exam Results',
+        exporterFileName: 'examResult_export',
+        list: {
+          menu: 'Exam Results',
+          title: 'Exam Results',
+        },
+        create: {
+          success: 'Exam Result successfully saved',
+        },
+        update: {
+          success: 'Exam Result successfully saved',
+        },
+        destroy: {
+          success: 'Exam Result successfully deleted',
+        },
+        destroyAll: {
+          success: 'Exam Result(s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit Exam Result',
+        },
+        fields: {
+          id: 'Id',
+          'questions': 'Questions',
+          'status': 'Status',
+          'lecture': 'Lecture',
+          'course': 'Course',
+          'answers': 'Answers',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+
+        },
+        new: {
+          title: 'New Exam Result',
+        },
+        view: {
+          title: 'View Exam Result',
+        },
+        importer: {
+          title: 'Import Exam Results',
+          fileName: 'examResult_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
+
+    answerResult: {
             name: 'answerResult',
             label: 'Answer Results',
             menu: 'Answer Results',

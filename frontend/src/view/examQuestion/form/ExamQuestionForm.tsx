@@ -11,8 +11,9 @@ import { useForm, FormProvider } from 'react-hook-form';
 import * as yup from 'yup';
 import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
 import { yupResolver } from '@hookform/resolvers';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
 import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
+import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
+import examQuestionEnumerators from 'src/modules/examQuestion/examQuestionEnumerators';
 import ExamAnswerAutocompleteFormItem from 'src/view/examAnswer/autocomplete/ExamAnswerAutocompleteFormItem';
 
 const schema = yup.object().shape({
@@ -20,9 +21,11 @@ const schema = yup.object().shape({
     i18n('entities.examQuestion.fields.textValue'),
     {},
   ),
-  questionType: yupFormSchemas.string(
+  questionType: yupFormSchemas.enumerator(
     i18n('entities.examQuestion.fields.questionType'),
-    {},
+    {
+      "options": examQuestionEnumerators.questionType
+    },
   ),
   answers: yupFormSchemas.relationToMany(
     i18n('entities.examQuestion.fields.answers'),
@@ -78,9 +81,17 @@ function ExamQuestionForm(props) {
               />
             </Grid>
             <Grid item lg={7} md={8} sm={12} xs={12}>
-              <InputFormItem
+              <SelectFormItem
                 name="questionType"
-                label={i18n('entities.examQuestion.fields.questionType')}  
+                label={i18n('entities.examQuestion.fields.questionType')}
+                options={examQuestionEnumerators.questionType.map(
+                  (value) => ({
+                    value,
+                    label: i18n(
+                      `entities.examQuestion.enumerators.questionType.${value}`,
+                    ),
+                  }),
+                )}
                 required={false}
               />
             </Grid>

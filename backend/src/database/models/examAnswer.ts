@@ -22,6 +22,13 @@ export default (database) => {
       },
       answerType: {
         type: String,
+        enum: [
+          "MULT_ONE",
+          "MULT_RATING",
+          "MULT_OR",
+          "MULT_AND",
+          null
+        ],
       },
       tenant: {
         type: Schema.Types.ObjectId,
