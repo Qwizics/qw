@@ -28,7 +28,7 @@ const schema = yup.object().shape({
   ),
 });
 
-function CourseLectureForm(props) {
+function CourseLecturePage(props) {
   const [initialValues] = useState(() => {
     const record = props.record || {};
 
@@ -132,4 +132,4 @@ function CourseLectureForm(props) {
   );
 }
 
-export default CourseLectureForm;
+export default CourseLecturePage;

@@ -6,7 +6,7 @@ const privateRoutes = [
   {
     path: '/course-content',
     loader: () =>
-            import('src/view/courseContent/CourseLectureForm'),
+            import('src/view/courseContent/view/CourseLecturePage'),
     permissionRequired: permissions.courseContent,
     exact: true,
   },
