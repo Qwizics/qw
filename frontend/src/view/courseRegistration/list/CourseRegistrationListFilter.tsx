@@ -22,12 +22,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import filterRenders from 'src/modules/shared/filter/filterRenders';
 import FilterPreview from 'src/view/shared/filter/FilterPreview';
 import FilterAccordion from 'src/view/shared/filter/FilterAccordion';
-import InputNumberRangeFormItem from 'src/view/shared/form/items/InputNumberRangeFormItem';
 import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import courseRegistrationEnumerators from 'src/modules/courseRegistration/courseRegistrationEnumerators';
 import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import ExamAutocompleteFormItem from 'src/view/exam/autocomplete/ExamAutocompleteFormItem';
+import CoursePaymentAutocompleteFormItem from 'src/view/coursePayment/autocomplete/CoursePaymentAutocompleteFormItem';
 
 const schema = yup.object().shape({
   attendee: yupFilterSchemas.relationToOne(
@@ -36,35 +33,19 @@ const schema = yup.object().shape({
   course: yupFilterSchemas.relationToOne(
     i18n('entities.courseRegistration.fields.course'),
   ),
-  courseStatus: yupFilterSchemas.enumerator(
-    i18n('entities.courseRegistration.fields.courseStatus'),
-  ),
   user: yupFilterSchemas.relationToOne(
     i18n('entities.courseRegistration.fields.user'),
   ),
-  examTimeRemainingRange: yupFilterSchemas.integerRange(
-    i18n('entities.courseRegistration.fields.examTimeRemainingRange'),
-  ),
-  finalScoreRange: yupFilterSchemas.integerRange(
-    i18n('entities.courseRegistration.fields.finalScoreRange'),
-  ),
-  survey: yupFilterSchemas.relationToOne(
-    i18n('entities.courseRegistration.fields.survey'),
-  ),
-  hasHonorCode: yupFilterSchemas.boolean(
-    i18n('entities.courseRegistration.fields.hasHonorCode'),
+  coursePayment: yupFilterSchemas.relationToOne(
+    i18n('entities.courseRegistration.fields.coursePayment'),
   ),
 });
 
 const emptyValues = {
   attendee: null,
   course: null,
-  courseStatus: null,
   user: null,
-  examTimeRemainingRange: [],
-  finalScoreRange: [],
-  survey: null,
-  hasHonorCode: null,
+  coursePayment: null,
 }
 
 const previewRenders = {
@@ -76,30 +57,14 @@ const previewRenders = {
       label: i18n('entities.courseRegistration.fields.course'),
       render: filterRenders.relationToOne(),
     },
-  courseStatus: {
-    label: i18n('entities.courseRegistration.fields.courseStatus'),
-    render: filterRenders.enumerator('entities.courseRegistration.enumerators.courseStatus',),
-  },
   user: {
     label: i18n('entities.courseRegistration.fields.user'),
     render: filterRenders.relationToOne(),
   },
-  examTimeRemainingRange: {
-    label: i18n('entities.courseRegistration.fields.examTimeRemainingRange'),
-    render: filterRenders.range(),
-  },
-  finalScoreRange: {
-    label: i18n('entities.courseRegistration.fields.finalScoreRange'),
-    render: filterRenders.range(),
-  },
-  survey: {
-      label: i18n('entities.courseRegistration.fields.survey'),
+  coursePayment: {
+      label: i18n('entities.courseRegistration.fields.coursePayment'),
       render: filterRenders.relationToOne(),
     },
-  hasHonorCode: {
-    label: i18n('entities.courseRegistration.fields.hasHonorCode'),
-    render: filterRenders.boolean(),
-  },
 }
 
 function CourseRegistrationListFilter(props) {
@@ -171,57 +136,15 @@ function CourseRegistrationListFilter(props) {
                   />
                 </Grid>
                 <Grid item lg={6} xs={12}>
-                  <SelectFormItem
-                    name="courseStatus"
-                    label={i18n('entities.courseRegistration.fields.courseStatus')}
-                    options={courseRegistrationEnumerators.courseStatus.map(
-                      (value) => ({
-                        value,
-                        label: i18n(
-                          `entities.courseRegistration.enumerators.courseStatus.${value}`,
-                        ),
-                      }),
-                    )}
-                  />
-                </Grid>
-                <Grid item lg={6} xs={12}>
                   <UserAutocompleteFormItem  
                     name="user"
                     label={i18n('entities.courseRegistration.fields.user')}        
                   />
                 </Grid>
                 <Grid item lg={6} xs={12}>
-                  <InputNumberRangeFormItem
-                    name="examTimeRemainingRange"
-                    label={i18n('entities.courseRegistration.fields.examTimeRemainingRange')}      
-                  />
-                </Grid>
-                <Grid item lg={6} xs={12}>
-                  <InputNumberRangeFormItem
-                    name="finalScoreRange"
-                    label={i18n('entities.courseRegistration.fields.finalScoreRange')}      
-                  />
-                </Grid>
-                <Grid item lg={6} xs={12}>
-                  <ExamAutocompleteFormItem  
-                    name="survey"
-                    label={i18n('entities.courseRegistration.fields.survey')}        
-                  />
-                </Grid>
-                <Grid item lg={6} xs={12}>
-                  <SelectFormItem
-                    name="hasHonorCode"
-                    label={i18n('entities.courseRegistration.fields.hasHonorCode')}
-                    options={[
-                      {
-                        value: true,
-                        label: i18n('common.yes'),
-                      },
-                      {
-                        value: false,
-                        label: i18n('common.no'),
-                      },
-                    ]}
+                  <CoursePaymentAutocompleteFormItem  
+                    name="coursePayment"
+                    label={i18n('entities.courseRegistration.fields.coursePayment')}        
                   />
                 </Grid>
               </Grid>

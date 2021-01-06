@@ -25,7 +25,7 @@ import Spinner from 'src/view/shared/Spinner';
 import TableCellCustom from 'src/view/shared/table/TableCellCustom';
 import UserListItem from 'src/view/user/list/UserListItem';
 import CourseListItem from 'src/view/course/list/CourseListItem';
-import ExamListItem from 'src/view/exam/list/ExamListItem';
+import CoursePaymentListItem from 'src/view/coursePayment/list/CoursePaymentListItem';
 
 function CourseRegistrationListTable(props) {
   const [
@@ -139,51 +139,13 @@ function CourseRegistrationListTable(props) {
                 )}
               />
               <TableCellCustom
-                onSort={doChangeSort}
-                hasRows={hasRows}
-                sorter={sorter}
-                name={'courseStatus'}
-                label={i18n(
-                  'entities.courseRegistration.fields.courseStatus',
-                )}
-              />
-              <TableCellCustom
                 label={i18n(
                   'entities.courseRegistration.fields.user',
                 )}
               />
               <TableCellCustom
-                onSort={doChangeSort}
-                hasRows={hasRows}
-                sorter={sorter}
-                name={'examTimeRemaining'}
                 label={i18n(
-                  'entities.courseRegistration.fields.examTimeRemaining',
-                )}
-                align="right"
-              />
-              <TableCellCustom
-                onSort={doChangeSort}
-                hasRows={hasRows}
-                sorter={sorter}
-                name={'finalScore'}
-                label={i18n(
-                  'entities.courseRegistration.fields.finalScore',
-                )}
-                align="right"
-              />
-              <TableCellCustom
-                label={i18n(
-                  'entities.courseRegistration.fields.survey',
-                )}
-              />
-              <TableCellCustom
-                onSort={doChangeSort}
-                hasRows={hasRows}
-                sorter={sorter}
-                name={'hasHonorCode'}
-                label={i18n(
-                  'entities.courseRegistration.fields.hasHonorCode',
+                  'entities.courseRegistration.fields.coursePayment',
                 )}
               />              
               <TableCellCustom size="md" />
@@ -232,24 +194,10 @@ function CourseRegistrationListTable(props) {
                   <CourseListItem value={row.course} />
                 </TableCell>
                 <TableCell>
-                  {row.courseStatus
-                    ? i18n(
-                        `entities.courseRegistration.enumerators.courseStatus.${row.courseStatus}`,
-                      )
-                    : null}
-                </TableCell>
-                <TableCell>
                   <UserListItem value={row.user} />
                 </TableCell>
-                <TableCell align="right">{row.examTimeRemaining}</TableCell>
-                <TableCell align="right">{row.finalScore}</TableCell>
                 <TableCell>
-                  <ExamListItem value={row.survey} />
-                </TableCell>
-                <TableCell>
-                  {row.hasHonorCode
-                    ? i18n('common.yes')
-                    : i18n('common.no')}
+                  <CoursePaymentListItem value={row.coursePayment} />
                 </TableCell>                  
                   <TableCell>
                     <Box

@@ -11,13 +11,9 @@ import { useForm, FormProvider } from 'react-hook-form';
 import * as yup from 'yup';
 import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
 import { yupResolver } from '@hookform/resolvers';
-import InputNumberFormItem from 'src/view/shared/form/items/InputNumberFormItem';
 import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import courseRegistrationEnumerators from 'src/modules/courseRegistration/courseRegistrationEnumerators';
 import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import ExamAutocompleteFormItem from 'src/view/exam/autocomplete/ExamAutocompleteFormItem';
+import CoursePaymentAutocompleteFormItem from 'src/view/coursePayment/autocomplete/CoursePaymentAutocompleteFormItem';
 
 const schema = yup.object().shape({
   attendee: yupFormSchemas.relationToOne(
@@ -28,30 +24,12 @@ const schema = yup.object().shape({
     i18n('entities.courseRegistration.fields.course'),
     {},
   ),
-  courseStatus: yupFormSchemas.enumerator(
-    i18n('entities.courseRegistration.fields.courseStatus'),
-    {
-      "options": courseRegistrationEnumerators.courseStatus
-    },
-  ),
   user: yupFormSchemas.relationToOne(
     i18n('entities.courseRegistration.fields.user'),
     {},
   ),
-  examTimeRemaining: yupFormSchemas.integer(
-    i18n('entities.courseRegistration.fields.examTimeRemaining'),
-    {},
-  ),
-  finalScore: yupFormSchemas.integer(
-    i18n('entities.courseRegistration.fields.finalScore'),
-    {},
-  ),
-  survey: yupFormSchemas.relationToOne(
-    i18n('entities.courseRegistration.fields.survey'),
-    {},
-  ),
-  hasHonorCode: yupFormSchemas.boolean(
-    i18n('entities.courseRegistration.fields.hasHonorCode'),
+  coursePayment: yupFormSchemas.relationToOne(
+    i18n('entities.courseRegistration.fields.coursePayment'),
     {},
   ),
 });
@@ -63,12 +41,8 @@ function CourseRegistrationForm(props) {
     return {
       attendee: record.attendee,
       course: record.course,
-      courseStatus: record.courseStatus,
       user: record.user,
-      examTimeRemaining: record.examTimeRemaining,
-      finalScore: record.finalScore,
-      survey: record.survey,
-      hasHonorCode: record.hasHonorCode,
+      coursePayment: record.coursePayment,
     };
   });
 
@@ -112,21 +86,6 @@ function CourseRegistrationForm(props) {
               />
             </Grid>
             <Grid item lg={7} md={8} sm={12} xs={12}>
-              <SelectFormItem
-                name="courseStatus"
-                label={i18n('entities.courseRegistration.fields.courseStatus')}
-                options={courseRegistrationEnumerators.courseStatus.map(
-                  (value) => ({
-                    value,
-                    label: i18n(
-                      `entities.courseRegistration.enumerators.courseStatus.${value}`,
-                    ),
-                  }),
-                )}
-                required={false}
-              />
-            </Grid>
-            <Grid item lg={7} md={8} sm={12} xs={12}>
               <UserAutocompleteFormItem  
                 name="user"
                 label={i18n('entities.courseRegistration.fields.user')}
@@ -135,31 +94,11 @@ function CourseRegistrationForm(props) {
               />
             </Grid>
             <Grid item lg={7} md={8} sm={12} xs={12}>
-              <InputNumberFormItem
-                name="examTimeRemaining"
-                label={i18n('entities.courseRegistration.fields.examTimeRemaining')}  
-                required={false}
-              />
-            </Grid>
-            <Grid item lg={7} md={8} sm={12} xs={12}>
-              <InputNumberFormItem
-                name="finalScore"
-                label={i18n('entities.courseRegistration.fields.finalScore')}  
-                required={false}
-              />
-            </Grid>
-            <Grid item lg={7} md={8} sm={12} xs={12}>
-              <ExamAutocompleteFormItem  
-                name="survey"
-                label={i18n('entities.courseRegistration.fields.survey')}
+              <CoursePaymentAutocompleteFormItem  
+                name="coursePayment"
+                label={i18n('entities.courseRegistration.fields.coursePayment')}
                 required={false}
                 showCreate={!props.modal}
-              />
-            </Grid>
-            <Grid item lg={7} md={8} sm={12} xs={12}>
-              <SwitchFormItem
-                name="hasHonorCode"
-                label={i18n('entities.courseRegistration.fields.hasHonorCode')}
               />
             </Grid>
           </Grid>

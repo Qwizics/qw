@@ -116,25 +116,14 @@ const es = {
           id: 'Id',
           'attendee': 'Attendee',
           'course': 'Course',
-          'courseStatus': 'CourseStatus',
           'user': 'User',
-          'examTimeRemainingRange': 'ExamTimeRemaining',
-          'examTimeRemaining': 'ExamTimeRemaining',
-          'finalScoreRange': 'FinalScore',
-          'finalScore': 'FinalScore',
-          'survey': 'Survey',
-          'hasHonorCode': 'HasHonorCode',
+          'coursePayment': 'CoursePayment',
           createdAt: 'Creado el',
           updatedAt: 'Actualizado el',
           createdAtRange: 'Creado el',
         },
         enumerators: {
-          'courseStatus': {
-            'OPEN': 'OPEN',
-            'OPEN_EXAM': 'OPEN_EXAM',
-            'PASSED': 'PASSED',
-            'FAILED': 'FAILED',
-          },
+
         },
         new: {
           title: 'Nuevo Course Registration',
@@ -289,7 +278,6 @@ const es = {
           'transaction': 'Transaction',
           'paymentRange': 'Payment',
           'payment': 'Payment',
-          'courseRegistration': 'CourseRegistration',
           createdAt: 'Creado el',
           updatedAt: 'Actualizado el',
           createdAtRange: 'Creado el',
@@ -346,7 +334,10 @@ const es = {
           createdAtRange: 'Creado el',
         },
         enumerators: {
-
+          'questionType': {
+            'MULT_TEXT': 'MULT_TEXT',
+            'MULT_1': 'MULT_1',
+          },
         },
         new: {
           title: 'Nuevo Exam Question',
@@ -396,7 +387,12 @@ const es = {
           createdAtRange: 'Creado el',
         },
         enumerators: {
-
+          'answerType': {
+            'MULT_ONE': 'MULT_ONE',
+            'MULT_RATING': 'MULT_RATING',
+            'MULT_OR': 'MULT_OR',
+            'MULT_AND': 'MULT_AND',
+          },
         },
         new: {
           title: 'Nuevo Exam Answer',
@@ -509,6 +505,67 @@ const es = {
         importer: {
           title: 'Importar Answer Results',
           fileName: 'answerResult_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    courseResults: {
+        name: 'courseResults',
+        label: 'CourseResults',
+        menu: 'CourseResults',
+        exporterFileName: 'exportacion_courseResults',
+        list: {
+          menu: 'CourseResults',
+          title: 'CourseResults',
+        },
+        create: {
+          success: 'CourseResults guardado con éxito',
+        },
+        update: {
+          success: 'CourseResults guardado con éxito',
+        },
+        destroy: {
+          success: 'CourseResults eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'CourseResults(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar CourseResults',
+        },
+        fields: {
+          id: 'Id',
+          'lectures': 'Lectures',
+          'examResults': 'ExamResults',
+          'finalScoreRange': 'FinalScore',
+          'finalScore': 'FinalScore',
+          'examTimeRemainingRange': 'ExamTimeRemaining',
+          'examTimeRemaining': 'ExamTimeRemaining',
+          'courseStatus': 'CourseStatus',
+          'requiresSurvey': 'RequiresSurvey',
+          'surveyResults': 'SurveyResults',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+          'courseStatus': {
+            'ACTIVE': 'ACTIVE',
+            'OPEN': 'OPEN',
+            'PASSED': 'PASSED',
+            'FAILED': 'FAILED',
+          },
+        },
+        new: {
+          title: 'Nuevo CourseResults',
+        },
+        view: {
+          title: 'Ver CourseResults',
+        },
+        importer: {
+          title: 'Importar CourseResults',
+          fileName: 'courseResults_import_template',
           hint:
             'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
         },

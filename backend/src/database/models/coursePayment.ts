@@ -20,10 +20,6 @@ export default (database) => {
       payment: {
         type: Number,
       },
-      courseRegistration: {
-        type: Schema.Types.ObjectId,
-        ref: 'courseRegistration',
-      },
       tenant: {
         type: Schema.Types.ObjectId,
         ref: 'tenant',

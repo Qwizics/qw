@@ -22,33 +22,13 @@ export default (database) => {
         type: Schema.Types.ObjectId,
         ref: 'course',
       },
-      courseStatus: {
-        type: String,
-        enum: [
-          "OPEN",
-          "OPEN_EXAM",
-          "PASSED",
-          "FAILED",
-          null
-        ],
-      },
       user: {
         type: Schema.Types.ObjectId,
         ref: 'user',
       },
-      examTimeRemaining: {
-        type: Number,
-      },
-      finalScore: {
-        type: Number,
-      },
-      survey: {
+      coursePayment: {
         type: Schema.Types.ObjectId,
-        ref: 'exam',
-      },
-      hasHonorCode: {
-        type: Boolean,
-        default: false
+        ref: 'coursePayment',
       },
       tenant: {
         type: Schema.Types.ObjectId,

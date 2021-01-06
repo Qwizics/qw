@@ -149,6 +149,13 @@ const ptBR = {
         }
       }
     },
+    courseResults: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
   }
 };
 

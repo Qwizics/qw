@@ -117,25 +117,14 @@ const ptBR = {
           id: 'Id',
           'attendee': 'Attendee',
           'course': 'Course',
-          'courseStatus': 'CourseStatus',
           'user': 'User',
-          'examTimeRemainingRange': 'ExamTimeRemaining',
-          'examTimeRemaining': 'ExamTimeRemaining',
-          'finalScoreRange': 'FinalScore',
-          'finalScore': 'FinalScore',
-          'survey': 'Survey',
-          'hasHonorCode': 'HasHonorCode',
+          'coursePayment': 'CoursePayment',
           createdAt: 'Criado em',
           updatedAt: 'Atualizado em',
           createdAtRange: 'Criado em',
         },
         enumerators: {
-          'courseStatus': {
-            'OPEN': 'OPEN',
-            'OPEN_EXAM': 'OPEN_EXAM',
-            'PASSED': 'PASSED',
-            'FAILED': 'FAILED',
-          },
+
         },
         new: {
           title: 'Novo Course Registration',
@@ -290,7 +279,6 @@ const ptBR = {
           'transaction': 'Transaction',
           'paymentRange': 'Payment',
           'payment': 'Payment',
-          'courseRegistration': 'CourseRegistration',
           createdAt: 'Criado em',
           updatedAt: 'Atualizado em',
           createdAtRange: 'Criado em',
@@ -347,7 +335,10 @@ const ptBR = {
           createdAtRange: 'Criado em',
         },
         enumerators: {
-
+          'questionType': {
+            'MULT_TEXT': 'MULT_TEXT',
+            'MULT_1': 'MULT_1',
+          },
         },
         new: {
           title: 'Novo Exam Question',
@@ -397,7 +388,12 @@ const ptBR = {
           createdAtRange: 'Criado em',
         },
         enumerators: {
-
+          'answerType': {
+            'MULT_ONE': 'MULT_ONE',
+            'MULT_RATING': 'MULT_RATING',
+            'MULT_OR': 'MULT_OR',
+            'MULT_AND': 'MULT_AND',
+          },
         },
         new: {
           title: 'Novo Exam Answer',
@@ -510,6 +506,67 @@ const ptBR = {
         importer: {
           title: 'Importar Answer Results',
           fileName: 'answerResult_template_importacao',
+          hint:
+            'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
+        },
+      },
+
+    courseResults: {
+        name: 'CourseResults',
+        label: 'CourseResults',
+        menu: 'CourseResults',
+        exporterFileName: 'CourseResults_exportados',
+        list: {
+          menu: 'CourseResults',
+          title: 'CourseResults',
+        },
+        create: {
+          success: 'CourseResults salvo com sucesso',
+        },
+        update: {
+          success: 'CourseResults salvo com sucesso',
+        },
+        destroy: {
+          success: 'CourseResults deletado com sucesso',
+        },
+        destroyAll: {
+          success: 'CourseResults(s) deletado com sucesso',
+        },
+        edit: {
+          title: 'Editar CourseResults',
+        },
+        fields: {
+          id: 'Id',
+          'lectures': 'Lectures',
+          'examResults': 'ExamResults',
+          'finalScoreRange': 'FinalScore',
+          'finalScore': 'FinalScore',
+          'examTimeRemainingRange': 'ExamTimeRemaining',
+          'examTimeRemaining': 'ExamTimeRemaining',
+          'courseStatus': 'CourseStatus',
+          'requiresSurvey': 'RequiresSurvey',
+          'surveyResults': 'SurveyResults',
+          createdAt: 'Criado em',
+          updatedAt: 'Atualizado em',
+          createdAtRange: 'Criado em',
+        },
+        enumerators: {
+          'courseStatus': {
+            'ACTIVE': 'ACTIVE',
+            'OPEN': 'OPEN',
+            'PASSED': 'PASSED',
+            'FAILED': 'FAILED',
+          },
+        },
+        new: {
+          title: 'Novo CourseResults',
+        },
+        view: {
+          title: 'Visualizar CourseResults',
+        },
+        importer: {
+          title: 'Importar CourseResults',
+          fileName: 'courseResults_template_importacao',
           hint:
             'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
         },

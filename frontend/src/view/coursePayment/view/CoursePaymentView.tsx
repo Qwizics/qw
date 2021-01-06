@@ -2,7 +2,6 @@ import React from 'react';
 import Spinner from 'src/view/shared/Spinner';
 import { i18n } from 'src/i18n';
 import TextViewItem from 'src/view/shared/view/TextViewItem';
-import CourseRegistrationViewItem from 'src/view/courseRegistration/view/CourseRegistrationViewItem';
 
 function CoursePaymentView(props) {
   const renderView = () => {
@@ -18,11 +17,6 @@ function CoursePaymentView(props) {
         <TextViewItem
           label={i18n('entities.coursePayment.fields.payment')}
           value={record.payment}
-        />
-
-        <CourseRegistrationViewItem
-          label={i18n('entities.coursePayment.fields.courseRegistration')}
-          value={record.courseRegistration}
         />        
       </div>
     );

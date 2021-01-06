@@ -24,7 +24,6 @@ import FilterPreview from 'src/view/shared/filter/FilterPreview';
 import FilterAccordion from 'src/view/shared/filter/FilterAccordion';
 import InputFormItem from 'src/view/shared/form/items/InputFormItem';
 import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import CourseRegistrationAutocompleteFormItem from 'src/view/courseRegistration/autocomplete/CourseRegistrationAutocompleteFormItem';
 
 const schema = yup.object().shape({
   transaction: yupFilterSchemas.string(
@@ -33,15 +32,11 @@ const schema = yup.object().shape({
   paymentRange: yupFilterSchemas.decimalRange(
     i18n('entities.coursePayment.fields.paymentRange'),
   ),
-  courseRegistration: yupFilterSchemas.relationToOne(
-    i18n('entities.coursePayment.fields.courseRegistration'),
-  ),
 });
 
 const emptyValues = {
   transaction: null,
   paymentRange: [],
-  courseRegistration: null,
 }
 
 const previewRenders = {
@@ -53,10 +48,6 @@ const previewRenders = {
     label: i18n('entities.coursePayment.fields.paymentRange'),
     render: filterRenders.decimalRange(),
   },
-  courseRegistration: {
-      label: i18n('entities.coursePayment.fields.courseRegistration'),
-      render: filterRenders.relationToOne(),
-    },
 }
 
 function CoursePaymentListFilter(props) {
@@ -125,12 +116,6 @@ function CoursePaymentListFilter(props) {
                   <InputRangeFormItem
                     name="paymentRange"
                     label={i18n('entities.coursePayment.fields.paymentRange')}      
-                  />
-                </Grid>
-                <Grid item lg={6} xs={12}>
-                  <CourseRegistrationAutocompleteFormItem  
-                    name="courseRegistration"
-                    label={i18n('entities.coursePayment.fields.courseRegistration')}        
                   />
                 </Grid>
               </Grid>

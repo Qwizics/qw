@@ -12,7 +12,6 @@ import * as yup from 'yup';
 import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
 import { yupResolver } from '@hookform/resolvers';
 import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import CourseRegistrationAutocompleteFormItem from 'src/view/courseRegistration/autocomplete/CourseRegistrationAutocompleteFormItem';
 
 const schema = yup.object().shape({
   transaction: yupFormSchemas.string(
@@ -21,10 +20,6 @@ const schema = yup.object().shape({
   ),
   payment: yupFormSchemas.decimal(
     i18n('entities.coursePayment.fields.payment'),
-    {},
-  ),
-  courseRegistration: yupFormSchemas.relationToOne(
-    i18n('entities.coursePayment.fields.courseRegistration'),
     {},
   ),
 });
@@ -36,7 +31,6 @@ function CoursePaymentForm(props) {
     return {
       transaction: record.transaction,
       payment: record.payment,
-      courseRegistration: record.courseRegistration,
     };
   });
 
@@ -76,14 +70,6 @@ function CoursePaymentForm(props) {
                 name="payment"
                 label={i18n('entities.coursePayment.fields.payment')}  
                 required={false}
-              />
-            </Grid>
-            <Grid item lg={7} md={8} sm={12} xs={12}>
-              <CourseRegistrationAutocompleteFormItem  
-                name="courseRegistration"
-                label={i18n('entities.coursePayment.fields.courseRegistration')}
-                required={false}
-                showCreate={!props.modal}
               />
             </Grid>
           </Grid>

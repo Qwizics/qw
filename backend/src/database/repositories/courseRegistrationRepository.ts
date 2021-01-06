@@ -4,7 +4,6 @@ import AuditLogRepository from './auditLogRepository';
 import Error404 from '../../errors/Error404';
 import { IRepositoryOptions } from './IRepositoryOptions';
 import CourseRegistration from '../models/courseRegistration';
-import CoursePayment from '../models/coursePayment';
 import ExamResult from '../models/examResult';
 
 /**
@@ -140,13 +139,6 @@ class CourseRegistrationRepository {
 
     await MongooseRepository.destroyRelationToOne(
       id,
-      CoursePayment(options.database),
-      'courseRegistration',
-      options,
-    );
-
-    await MongooseRepository.destroyRelationToOne(
-      id,
       ExamResult(options.database),
       'course',
       options,
@@ -190,7 +182,7 @@ class CourseRegistrationRepository {
       .populate('attendee')
       .populate('course')
       .populate('user')
-      .populate('survey'),
+      .populate('coursePayment'),
       options,
     );
 
@@ -254,12 +246,6 @@ class CourseRegistrationRepository {
         });
       }
 
-      if (filter.courseStatus) {
-        criteriaAnd.push({
-          courseStatus: filter.courseStatus
-        });
-      }
-
       if (filter.user) {
         criteriaAnd.push({
           user: MongooseQueryUtils.uuid(
@@ -268,64 +254,11 @@ class CourseRegistrationRepository {
         });
       }
 
-      if (filter.examTimeRemainingRange) {
-        const [start, end] = filter.examTimeRemainingRange;
-
-        if (start !== undefined && start !== null && start !== '') {
-          criteriaAnd.push({
-            examTimeRemaining: {
-              $gte: start,
-            },
-          });
-        }
-
-        if (end !== undefined && end !== null && end !== '') {
-          criteriaAnd.push({
-            examTimeRemaining: {
-              $lte: end,
-            },
-          });
-        }
-      }
-
-      if (filter.finalScoreRange) {
-        const [start, end] = filter.finalScoreRange;
-
-        if (start !== undefined && start !== null && start !== '') {
-          criteriaAnd.push({
-            finalScore: {
-              $gte: start,
-            },
-          });
-        }
-
-        if (end !== undefined && end !== null && end !== '') {
-          criteriaAnd.push({
-            finalScore: {
-              $lte: end,
-            },
-          });
-        }
-      }
-
-      if (filter.survey) {
+      if (filter.coursePayment) {
         criteriaAnd.push({
-          survey: MongooseQueryUtils.uuid(
-            filter.survey,
+          coursePayment: MongooseQueryUtils.uuid(
+            filter.coursePayment,
           ),
-        });
-      }
-
-      if (
-        filter.hasHonorCode === true ||
-        filter.hasHonorCode === 'true' ||
-        filter.hasHonorCode === false ||
-        filter.hasHonorCode === 'false'
-      ) {
-        criteriaAnd.push({
-          hasHonorCode:
-            filter.hasHonorCode === true ||
-            filter.hasHonorCode === 'true',
         });
       }
 
@@ -376,7 +309,7 @@ class CourseRegistrationRepository {
       .populate('attendee')
       .populate('course')
       .populate('user')
-      .populate('survey');
+      .populate('coursePayment');
 
     const count = await CourseRegistration(
       options.database,

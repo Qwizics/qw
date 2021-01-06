@@ -479,6 +479,46 @@ class Permissions {
         id: 'answerResultAutocomplete',
         allowedRoles: [roles.admin, roles.custom],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+
+      courseResultsImport: {
+        id: 'courseResultsImport',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      courseResultsCreate: {
+        id: 'courseResultsCreate',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      courseResultsEdit: {
+        id: 'courseResultsEdit',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      courseResultsDestroy: {
+        id: 'courseResultsDestroy',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      courseResultsRead: {
+        id: 'courseResultsRead',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      courseResultsAutocomplete: {
+        id: 'courseResultsAutocomplete',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },      
     };
   }

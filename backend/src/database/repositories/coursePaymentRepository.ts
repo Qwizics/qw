@@ -4,6 +4,7 @@ import AuditLogRepository from './auditLogRepository';
 import Error404 from '../../errors/Error404';
 import { IRepositoryOptions } from './IRepositoryOptions';
 import CoursePayment from '../models/coursePayment';
+import CourseRegistration from '../models/courseRegistration';
 
 /**
  * Handles database operations for the CoursePayment.
@@ -136,7 +137,12 @@ class CoursePaymentRepository {
       options,
     );
 
-
+    await MongooseRepository.destroyRelationToOne(
+      id,
+      CourseRegistration(options.database),
+      'coursePayment',
+      options,
+    );
   }
 
   /**
@@ -172,8 +178,7 @@ class CoursePaymentRepository {
 
     let record = await MongooseRepository.wrapWithSessionIfExists(
       CoursePayment(options.database)
-        .findById(id)
-      .populate('courseRegistration'),
+        .findById(id),
       options,
     );
 
@@ -252,14 +257,6 @@ class CoursePaymentRepository {
         }
       }
 
-      if (filter.courseRegistration) {
-        criteriaAnd.push({
-          courseRegistration: MongooseQueryUtils.uuid(
-            filter.courseRegistration,
-          ),
-        });
-      }
-
       if (filter.createdAtRange) {
         const [start, end] = filter.createdAtRange;
 
@@ -303,8 +300,7 @@ class CoursePaymentRepository {
       .find(criteria)
       .skip(skip)
       .limit(limitEscaped)
-      .sort(sort)
-      .populate('courseRegistration');
+      .sort(sort);
 
     const count = await CoursePayment(
       options.database,

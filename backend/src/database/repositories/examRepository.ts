@@ -5,7 +5,7 @@ import Error404 from '../../errors/Error404';
 import { IRepositoryOptions } from './IRepositoryOptions';
 import Exam from '../models/exam';
 import Course from '../models/course';
-import CourseRegistration from '../models/courseRegistration';
+import CourseResults from '../models/courseResults';
 
 /**
  * Handles database operations for the Exam.
@@ -147,8 +147,8 @@ class ExamRepository {
 
     await MongooseRepository.destroyRelationToOne(
       id,
-      CourseRegistration(options.database),
-      'survey',
+      CourseResults(options.database),
+      'surveyResults',
       options,
     );
   }

@@ -1,6 +1,5 @@
 import schemas from 'src/modules/shared/yup/yupImporterSchemas';
 import { i18n } from 'src/i18n';
-import courseRegistrationEnumerators from 'src/modules/courseRegistration/courseRegistrationEnumerators';
 
 export default [
   {
@@ -20,16 +19,6 @@ export default [
     ),
   },
   {
-    name: 'courseStatus',
-    label: i18n('entities.courseRegistration.fields.courseStatus'),
-    schema: schemas.enumerator(
-      i18n('entities.courseRegistration.fields.courseStatus'),
-      {
-        "options": courseRegistrationEnumerators.courseStatus
-      },
-    ),
-  },
-  {
     name: 'user',
     label: i18n('entities.courseRegistration.fields.user'),
     schema: schemas.relationToOne(
@@ -38,34 +27,10 @@ export default [
     ),
   },
   {
-    name: 'examTimeRemaining',
-    label: i18n('entities.courseRegistration.fields.examTimeRemaining'),
-    schema: schemas.integer(
-      i18n('entities.courseRegistration.fields.examTimeRemaining'),
-      {},
-    ),
-  },
-  {
-    name: 'finalScore',
-    label: i18n('entities.courseRegistration.fields.finalScore'),
-    schema: schemas.integer(
-      i18n('entities.courseRegistration.fields.finalScore'),
-      {},
-    ),
-  },
-  {
-    name: 'survey',
-    label: i18n('entities.courseRegistration.fields.survey'),
+    name: 'coursePayment',
+    label: i18n('entities.courseRegistration.fields.coursePayment'),
     schema: schemas.relationToOne(
-      i18n('entities.courseRegistration.fields.survey'),
-      {},
-    ),
-  },
-  {
-    name: 'hasHonorCode',
-    label: i18n('entities.courseRegistration.fields.hasHonorCode'),
-    schema: schemas.boolean(
-      i18n('entities.courseRegistration.fields.hasHonorCode'),
+      i18n('entities.courseRegistration.fields.coursePayment'),
       {},
     ),
   },

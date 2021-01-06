@@ -18,12 +18,4 @@ export default [
       {},
     ),
   },
-  {
-    name: 'courseRegistration',
-    label: i18n('entities.coursePayment.fields.courseRegistration'),
-    schema: schemas.relationToOne(
-      i18n('entities.coursePayment.fields.courseRegistration'),
-      {},
-    ),
-  },
 ];

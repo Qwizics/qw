@@ -4,6 +4,7 @@ import AuditLogRepository from './auditLogRepository';
 import Error404 from '../../errors/Error404';
 import { IRepositoryOptions } from './IRepositoryOptions';
 import ExamResult from '../models/examResult';
+import CourseResults from '../models/courseResults';
 
 /**
  * Handles database operations for the ExamResult.
@@ -136,7 +137,12 @@ class ExamResultRepository {
       options,
     );
 
-
+    await MongooseRepository.destroyRelationToMany(
+      id,
+      CourseResults(options.database),
+      'examResults',
+      options,
+    );
   }
 
   /**

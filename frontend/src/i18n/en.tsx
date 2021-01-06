@@ -90,67 +90,56 @@ const en = {
             },
         },
 
-        courseRegistration: {
-            name: 'courseRegistration',
-            label: 'Course Registrations',
-            menu: 'Course Registrations',
-            exporterFileName: 'courseRegistration_export',
-            list: {
-                menu: 'Course Registrations',
-                title: 'Course Registrations',
-            },
-            create: {
-                success: 'Course Registration successfully saved',
-            },
-            update: {
-                success: 'Course Registration successfully saved',
-            },
-            destroy: {
-                success: 'Course Registration successfully deleted',
-            },
-            destroyAll: {
-                success: 'Course Registration(s) successfully deleted',
-            },
-            edit: {
-                title: 'Edit Course Registration',
-            },
-            fields: {
-                id: 'Id',
-                'attendee': 'Attendee',
-                'course': 'Course',
-                'courseStatus': 'CourseStatus',
-                'user': 'User',
-                'examTimeRemainingRange': 'ExamTimeRemaining',
-                'examTimeRemaining': 'ExamTimeRemaining',
-                'finalScoreRange': 'FinalScore',
-                'finalScore': 'FinalScore',
-                'survey': 'Survey',
-                'hasHonorCode': 'HasHonorCode',
-                createdAt: 'Created at',
-                updatedAt: 'Updated at',
-                createdAtRange: 'Created at',
-            },
-            enumerators: {
-                'courseStatus': {
-                    'OPEN': 'OPEN',
-                    'OPEN_EXAM': 'OPEN_EXAM',
-                    'PASSED': 'PASSED',
-                    'FAILED': 'FAILED',
-                },
-            },
-            new: {
-                title: 'New Course Registration',
-            },
-            view: {
-                title: 'View Course Registration',
-            },
-            importer: {
-                title: 'Import Course Registrations',
-                fileName: 'courseRegistration_import_template',
-                hint:
-                    'Files/Images columns must be the URLs of the files separated by space.',
-            },
+    courseRegistration: {
+        name: 'courseRegistration',
+        label: 'Course Registrations',
+        menu: 'Course Registrations',
+        exporterFileName: 'courseRegistration_export',
+        list: {
+          menu: 'Course Registrations',
+          title: 'Course Registrations',
         },
+        create: {
+          success: 'Course Registration successfully saved',
+        },
+        update: {
+          success: 'Course Registration successfully saved',
+        },
+        destroy: {
+          success: 'Course Registration successfully deleted',
+        },
+        destroyAll: {
+          success: 'Course Registration(s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit Course Registration',
+        },
+        fields: {
+          id: 'Id',
+          'attendee': 'Attendee',
+          'course': 'Course',
+          'user': 'User',
+          'coursePayment': 'CoursePayment',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+
+        },
+        new: {
+          title: 'New Course Registration',
+        },
+        view: {
+          title: 'View Course Registration',
+        },
+        importer: {
+          title: 'Import Course Registrations',
+          fileName: 'courseRegistration_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
 
         exam: {
             name: 'exam',
@@ -260,54 +249,55 @@ const en = {
             },
         },
 
-        coursePayment: {
-            name: 'coursePayment',
-            label: 'Course Payments',
-            menu: 'Course Payments',
-            exporterFileName: 'coursePayment_export',
-            list: {
-                menu: 'Course Payments',
-                title: 'Course Payments',
-            },
-            create: {
-                success: 'Course Payment successfully saved',
-            },
-            update: {
-                success: 'Course Payment successfully saved',
-            },
-            destroy: {
-                success: 'Course Payment successfully deleted',
-            },
-            destroyAll: {
-                success: 'Course Payment(s) successfully deleted',
-            },
-            edit: {
-                title: 'Edit Course Payment',
-            },
-            fields: {
-                id: 'Id',
-                'transaction': 'Transaction',
-                'paymentRange': 'Payment',
-                'payment': 'Payment',
-                'courseRegistration': 'CourseRegistration',
-                createdAt: 'Created at',
-                updatedAt: 'Updated at',
-                createdAtRange: 'Created at',
-            },
-            enumerators: {},
-            new: {
-                title: 'New Course Payment',
-            },
-            view: {
-                title: 'View Course Payment',
-            },
-            importer: {
-                title: 'Import Course Payments',
-                fileName: 'coursePayment_import_template',
-                hint:
-                    'Files/Images columns must be the URLs of the files separated by space.',
-            },
+    coursePayment: {
+        name: 'coursePayment',
+        label: 'Course Payments',
+        menu: 'Course Payments',
+        exporterFileName: 'coursePayment_export',
+        list: {
+          menu: 'Course Payments',
+          title: 'Course Payments',
         },
+        create: {
+          success: 'Course Payment successfully saved',
+        },
+        update: {
+          success: 'Course Payment successfully saved',
+        },
+        destroy: {
+          success: 'Course Payment successfully deleted',
+        },
+        destroyAll: {
+          success: 'Course Payment(s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit Course Payment',
+        },
+        fields: {
+          id: 'Id',
+          'transaction': 'Transaction',
+          'paymentRange': 'Payment',
+          'payment': 'Payment',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+
+        },
+        new: {
+          title: 'New Course Payment',
+        },
+        view: {
+          title: 'View Course Payment',
+        },
+        importer: {
+          title: 'Import Course Payments',
+          fileName: 'coursePayment_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
 
     examQuestion: {
         name: 'examQuestion',
@@ -471,53 +461,116 @@ const en = {
       },
 
     answerResult: {
-            name: 'answerResult',
-            label: 'Answer Results',
-            menu: 'Answer Results',
-            exporterFileName: 'answerResult_export',
-            list: {
-                menu: 'Answer Results',
-                title: 'Answer Results',
-            },
-            create: {
-                success: 'Answer Result successfully saved',
-            },
-            update: {
-                success: 'Answer Result successfully saved',
-            },
-            destroy: {
-                success: 'Answer Result successfully deleted',
-            },
-            destroyAll: {
-                success: 'Answer Result(s) successfully deleted',
-            },
-            edit: {
-                title: 'Edit Answer Result',
-            },
-            fields: {
-                id: 'Id',
-                'answer': 'Answer',
-                'question': 'Question',
-                'user': 'User',
-                createdAt: 'Created at',
-                updatedAt: 'Updated at',
-                createdAtRange: 'Created at',
-            },
-            enumerators: {},
-            new: {
-                title: 'New Answer Result',
-            },
-            view: {
-                title: 'View Answer Result',
-            },
-            importer: {
-                title: 'Import Answer Results',
-                fileName: 'answerResult_import_template',
-                hint:
-                    'Files/Images columns must be the URLs of the files separated by space.',
-            },
+        name: 'answerResult',
+        label: 'Answer Results',
+        menu: 'Answer Results',
+        exporterFileName: 'answerResult_export',
+        list: {
+          menu: 'Answer Results',
+          title: 'Answer Results',
         },
-    },
+        create: {
+          success: 'Answer Result successfully saved',
+        },
+        update: {
+          success: 'Answer Result successfully saved',
+        },
+        destroy: {
+          success: 'Answer Result successfully deleted',
+        },
+        destroyAll: {
+          success: 'Answer Result(s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit Answer Result',
+        },
+        fields: {
+          id: 'Id',
+          'answer': 'Answer',
+          'question': 'Question',
+          'user': 'User',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+
+        },
+        new: {
+          title: 'New Answer Result',
+        },
+        view: {
+          title: 'View Answer Result',
+        },
+        importer: {
+          title: 'Import Answer Results',
+          fileName: 'answerResult_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
+
+    courseResults: {
+        name: 'courseResults',
+        label: 'CourseResults',
+        menu: 'CourseResults',
+        exporterFileName: 'courseResults_export',
+        list: {
+          menu: 'CourseResults',
+          title: 'CourseResults',
+        },
+        create: {
+          success: 'CourseResults successfully saved',
+        },
+        update: {
+          success: 'CourseResults successfully saved',
+        },
+        destroy: {
+          success: 'CourseResults successfully deleted',
+        },
+        destroyAll: {
+          success: 'CourseResults(s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit CourseResults',
+        },
+        fields: {
+          id: 'Id',
+          'lectures': 'Lectures',
+          'examResults': 'ExamResults',
+          'finalScoreRange': 'FinalScore',
+          'finalScore': 'FinalScore',
+          'examTimeRemainingRange': 'ExamTimeRemaining',
+          'examTimeRemaining': 'ExamTimeRemaining',
+          'courseStatus': 'CourseStatus',
+          'requiresSurvey': 'RequiresSurvey',
+          'surveyResults': 'SurveyResults',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+          'courseStatus': {
+            'ACTIVE': 'ACTIVE',
+            'OPEN': 'OPEN',
+            'PASSED': 'PASSED',
+            'FAILED': 'FAILED',
+          },
+        },
+        new: {
+          title: 'New CourseResults',
+        },
+        view: {
+          title: 'View CourseResults',
+        },
+        importer: {
+          title: 'Import CourseResults',
+          fileName: 'courseResults_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
+  },
 
     auth: {
         tenants: 'Workspaces',

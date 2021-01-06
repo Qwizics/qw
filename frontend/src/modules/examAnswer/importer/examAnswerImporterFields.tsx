@@ -1,5 +1,6 @@
 import schemas from 'src/modules/shared/yup/yupImporterSchemas';
 import { i18n } from 'src/i18n';
+import examAnswerEnumerators from 'src/modules/examAnswer/examAnswerEnumerators';
 
 export default [
   {
@@ -21,9 +22,11 @@ export default [
   {
     name: 'answerType',
     label: i18n('entities.examAnswer.fields.answerType'),
-    schema: schemas.string(
+    schema: schemas.enumerator(
       i18n('entities.examAnswer.fields.answerType'),
-      {},
+      {
+        "options": examAnswerEnumerators.answerType
+      },
     ),
   },
 ];

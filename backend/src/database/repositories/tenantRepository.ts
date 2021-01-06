@@ -14,6 +14,7 @@ import ExamQuestion from '../models/examQuestion';
 import ExamAnswer from '../models/examAnswer';
 import ExamResult from '../models/examResult';
 import AnswerResult from '../models/answerResult';
+import CourseResults from '../models/courseResults';
 import Error400 from '../../errors/Error400';
 import { v4 as uuid } from 'uuid';
 import { isUserInTenant } from '../utils/userTenantUtils';
@@ -301,6 +302,11 @@ class TenantRepository {
 
     await MongooseRepository.wrapWithSessionIfExists(
       AnswerResult(options.database).deleteMany({ tenant: id }),
+      options,
+    );
+
+    await MongooseRepository.wrapWithSessionIfExists(
+      CourseResults(options.database).deleteMany({ tenant: id }),
       options,
     );
 

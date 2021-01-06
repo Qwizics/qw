@@ -151,6 +151,13 @@ const en = {
         }
       }
     },
+    courseResults: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
   }
 };
 

@@ -23,7 +23,7 @@ import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
 import Pagination from 'src/view/shared/table/Pagination';
 import Spinner from 'src/view/shared/Spinner';
 import TableCellCustom from 'src/view/shared/table/TableCellCustom';
-import CourseRegistrationListItem from 'src/view/courseRegistration/list/CourseRegistrationListItem';
+
 
 function CoursePaymentListTable(props) {
   const [
@@ -144,11 +144,6 @@ function CoursePaymentListTable(props) {
                   'entities.coursePayment.fields.payment',
                 )}
                 align="right"
-              />
-              <TableCellCustom
-                label={i18n(
-                  'entities.coursePayment.fields.courseRegistration',
-                )}
               />              
               <TableCellCustom size="md" />
             </TableRow>
@@ -190,10 +185,7 @@ function CoursePaymentListTable(props) {
                     />
                   </TableCell>
                 <TableCell>{row.transaction}</TableCell>
-                <TableCell align="right">{row.payment}</TableCell>
-                <TableCell>
-                  <CourseRegistrationListItem value={row.courseRegistration} />
-                </TableCell>                  
+                <TableCell align="right">{row.payment}</TableCell>                  
                   <TableCell>
                     <Box
                       display="flex"

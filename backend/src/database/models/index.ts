@@ -11,7 +11,8 @@ const models = [
   require('./examQuestion').default,
   require('./examAnswer').default,
   require('./examResult').default,
-  require('./answerResult').default,  
+  require('./answerResult').default,
+  require('./courseResults').default,  
 ];
 
 export default function init(database) {

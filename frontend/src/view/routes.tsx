@@ -450,6 +450,44 @@ const privateRoutes = [
     permissionRequired: permissions.answerResultRead,
     exact: true,
   },
+
+  {
+    path: '/course-results',
+    loader: () =>
+      import('src/view/courseResults/list/CourseResultsListPage'),
+    permissionRequired: permissions.courseResultsRead,
+    exact: true,
+  },
+  {
+    path: '/course-results/new',
+    loader: () =>
+      import('src/view/courseResults/form/CourseResultsFormPage'),
+    permissionRequired: permissions.courseResultsCreate,
+    exact: true,
+  },
+  {
+    path: '/course-results/importer',
+    loader: () =>
+      import(
+        'src/view/courseResults/importer/CourseResultsImporterPage'
+      ),
+    permissionRequired: permissions.courseResultsImport,
+    exact: true,
+  },
+  {
+    path: '/course-results/:id/edit',
+    loader: () =>
+      import('src/view/courseResults/form/CourseResultsFormPage'),
+    permissionRequired: permissions.courseResultsEdit,
+    exact: true,
+  },
+  {
+    path: '/course-results/:id',
+    loader: () =>
+      import('src/view/courseResults/view/CourseResultsViewPage'),
+    permissionRequired: permissions.courseResultsRead,
+    exact: true,
+  },
 ].filter(Boolean);
 
 const publicRoutes = [

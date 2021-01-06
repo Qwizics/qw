@@ -153,6 +153,13 @@ const es = {
         }
       }
     },
+    courseResults: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
   }
 };
 

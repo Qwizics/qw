@@ -17,31 +17,14 @@ export default [
     render: exporterRenders.relationToOne(),
   },
   {
-    name: 'courseStatus',
-    label: i18n('entities.courseRegistration.fields.courseStatus'),
-  },
-  {
     name: 'user',
     label: i18n('entities.courseRegistration.fields.user'),
     render: exporterRenders.relationToOne(),
   },
   {
-    name: 'examTimeRemaining',
-    label: i18n('entities.courseRegistration.fields.examTimeRemaining'),
-  },
-  {
-    name: 'finalScore',
-    label: i18n('entities.courseRegistration.fields.finalScore'),
-  },
-  {
-    name: 'survey',
-    label: i18n('entities.courseRegistration.fields.survey'),
+    name: 'coursePayment',
+    label: i18n('entities.courseRegistration.fields.coursePayment'),
     render: exporterRenders.relationToOne(),
-  },
-  {
-    name: 'hasHonorCode',
-    label: i18n('entities.courseRegistration.fields.hasHonorCode'),
-    render: exporterRenders.boolean(),
   },
   {
     name: 'createdAt',

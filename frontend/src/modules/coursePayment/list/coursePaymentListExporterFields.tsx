@@ -16,11 +16,6 @@ export default [
     render: exporterRenders.decimal(),
   },
   {
-    name: 'courseRegistration',
-    label: i18n('entities.coursePayment.fields.courseRegistration'),
-    render: exporterRenders.relationToOne(),
-  },
-  {
     name: 'createdAt',
     label: i18n('entities.coursePayment.fields.createdAt'),
     render: exporterRenders.datetime(),

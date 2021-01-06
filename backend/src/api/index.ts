@@ -69,6 +69,7 @@ require('./examQuestion').default(routes);
 require('./examAnswer').default(routes);
 require('./examResult').default(routes);
 require('./answerResult').default(routes);
+require('./courseResults').default(routes);
 
 // Loads the Tenant if the :tenantId param is passed
 routes.param('tenantId', tenantMiddleware);

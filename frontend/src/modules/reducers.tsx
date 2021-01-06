@@ -15,6 +15,7 @@ import examQuestion from 'src/modules/examQuestion/examQuestionReducers';
 import examAnswer from 'src/modules/examAnswer/examAnswerReducers';
 import examResult from 'src/modules/examResult/examResultReducers';
 import answerResult from 'src/modules/answerResult/answerResultReducers';
+import courseResults from 'src/modules/courseResults/courseResultsReducers';
 import { combineReducers } from 'redux';
 
 export default (history) =>
@@ -36,4 +37,5 @@ export default (history) =>
     examAnswer,
     examResult,
     answerResult,
+    courseResults,
   });

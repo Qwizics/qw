@@ -7,6 +7,7 @@ import CourseLecture from '../models/courseLecture';
 import Course from '../models/course';
 import Exam from '../models/exam';
 import ExamResult from '../models/examResult';
+import CourseResults from '../models/courseResults';
 
 /**
  * Handles database operations for the CourseLecture.
@@ -157,6 +158,13 @@ class CourseLectureRepository {
       id,
       ExamResult(options.database),
       'lecture',
+      options,
+    );
+
+    await MongooseRepository.destroyRelationToMany(
+      id,
+      CourseResults(options.database),
+      'lectures',
       options,
     );
   }

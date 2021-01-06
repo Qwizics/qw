@@ -110,6 +110,12 @@ export default [
     icon: <ChevronRightIcon />,
     label: i18n('entities.answerResult.menu'),
   },
+  {
+    path: '/course-results',
+    permissionRequired: permissions.courseResultsRead,
+    icon: <ChevronRightIcon />,
+    label: i18n('entities.courseResults.menu'),
+  },
 
   {
     path: '/course-content',
